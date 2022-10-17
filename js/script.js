@@ -1,45 +1,33 @@
-// 1. AL CLICK di button-play si crea div griglia - <div class="grid"> </div>
-
-// prelevo btn
+// prelevo btn e main
 const btnPlay = document.getElementById("button-play");
 const mainDiv = document.querySelector("main");
-// console.log(btnPlay);
-// console.log(mainDiv)
 
+//1. Al Click di btnPlay si genera griglia e squares
 btnPlay.addEventListener("click", function () {
-  //creo grid div
+  //creo grid div, append al main
   const gridDiv = document.createElement("div");
   gridDiv.classList.add("grid");
   mainDiv.append(gridDiv);
-  // console.log(gridDiv);
 
   // 2. GENERO (while) 100 numeri random (senza duplicati) e li pusho in una array
-  // genero 100 numeri
   const hundredNumbers = generateArrayRandomNumbers(100);
-  console.log(hundredNumbers);
 
-  // 3. CREO con ciclo for 100 div.square NB utilizzo this perchè devono essere cliccabili
-  // creo con createElment il div
-  // inserisco .square
-  // inserisco uno dei numeri della array
+  // 3. CREO con ciclo for 100 div.square 
   for (let i = 0; i < 100; i++) {
-    const squareDiv = document.createElement("div");
+    let squareDiv = document.createElement("div");
     squareDiv.classList.add("square");
-    squareDiv.innerHTML = hundredNumbers[i];
+    squareDiv.innerHTML = hundredNumbers[i];   
+
+    // 4. CREO DIV cliccabili con this.
+    squareDiv.addEventListener("click", function () {
+      this.classList.add("blue");
+      const clickedNumber = this.textContent;
+      console.log(clickedNumber)
+    });   
+
     gridDiv.append(squareDiv);
   }
 });
-
-// 4. CREATI i div devono essere cliccabili
-// aggiungo .blue all'elemento cliccato
-// aggiungo msg in console con il numero della casella (.textContent)
-
-
-
-
-
-
-
 
 
 
