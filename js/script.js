@@ -9,30 +9,38 @@ btnPlay.addEventListener("click", function () {
   gridDiv.classList.add("grid");
   mainDiv.append(gridDiv);
 
+  //  SE Select OPTION = EASY
   // 2. GENERO (while) 100 numeri random (senza duplicati) e li pusho in una array
   const hundredNumbers = generateArrayRandomNumbers(100);
 
-  // 3. CREO con ciclo for 100 div.square 
+  // 3. CREO con ciclo for 100 div.square
   for (let i = 0; i < 100; i++) {
-    let squareDiv = document.createElement("div");
+    const squareDiv = document.createElement("div");
     squareDiv.classList.add("square");
-    squareDiv.innerHTML = hundredNumbers[i];   
+    squareDiv.classList.add("square-simple");
+    squareDiv.innerHTML = hundredNumbers[i];
 
     // 4. CREO DIV cliccabili con this.
     squareDiv.addEventListener("click", function () {
       this.classList.add("blue");
       const clickedNumber = this.textContent;
-      console.log(clickedNumber)
-    });   
+      console.log(clickedNumber);
+    });
 
     gridDiv.append(squareDiv);
   }
+
+  //  ALTRIMENTI SE è medium
+  // Medium 9x9 --- add square-medium
+  const eightyoneNumbers = generateArrayRandomNumbers(81);
+  console.log(eightyoneNumbers);
+  // ALTRIMENTI (hard)
+  //Hard 7x7 --- add square-hard
+  const fortynineNumbers = generateArrayRandomNumbers(49);
+  console.log(fortynineNumbers);
 });
 
-
-
-
-//FUNCTION
+//FUNCTION-------------------------------------------
 
 //RANDOM NUMBERS GENERATOR W3school
 function getRndInteger(min, max) {

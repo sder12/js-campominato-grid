@@ -53,8 +53,6 @@ footer {
     
 }
 .square{
-   height:calc(var(--grid-size) / 10);
-   width: calc(var(--grid-size) / 10);
    border: 1px solid black;
 
    display: flex;
@@ -62,6 +60,21 @@ footer {
    justify-content: center;
 
    cursor: pointer;
+}
+
+.square-simple{
+  height:calc(var(--grid-size) / 10);
+  width: calc(var(--grid-size) / 10);
+}
+
+.square-medium{
+  height:calc(var(--grid-size) / 9);
+  width: calc(var(--grid-size) / 9);
+}
+
+.square-hard{
+  height:calc(var(--grid-size) / 7);
+  width: calc(var(--grid-size) / 7);
 }
 /* BTN */
 #button-play{
