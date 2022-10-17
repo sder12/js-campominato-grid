@@ -1,4 +1,3 @@
-
 // 1. AL CLICK di button-play si crea div griglia - <div class="grid"> </div>
 
 // prelevo btn
@@ -7,39 +6,27 @@ const mainDiv = document.querySelector("main");
 // console.log(btnPlay);
 // console.log(mainDiv)
 
-
-btnPlay.addEventListener("click" , function(){
-    //creo grid div 
-    const gridDiv = document.createElement("div");
-    gridDiv.classList.add("grid");
-    mainDiv.append(gridDiv);
-    // console.log(gridDiv);    
-})
+btnPlay.addEventListener("click", function () {
+  //creo grid div
+  const gridDiv = document.createElement("div");
+  gridDiv.classList.add("grid");
+  mainDiv.append(gridDiv);
+  // console.log(gridDiv);
+});
 
 // 2. GENERO (while) 100 numeri random (senza duplicati) e li pusho in una array
-// genero 100 numeri 
-const hundredNumbers = [];
-
-let i = 0;
-while(hundredNumbers.length < 100){
-    const numberRnd = getRndInteger(1, 100);
-    // console.log(numberRnd);
-
-    if (!hundredNumbers.includes(numberRnd)){
-        hundredNumbers.push(numberRnd);
-    } 
-}
-console.log(hundredNumbers)
-
+// genero 100 numeri
+const hundredNumbers = generateArrayRandomNumbers(100);
+console.log(hundredNumbers);
 
 
 // 3. CREO con ciclo for 100 div.square NB utilizzo this perchè devono essere cliccabili
-        // creo con createElment il div
-        // inserisco .square
-        // inserisco uno dei numeri della array
-// 4. CREATI i div devono essere cliccabili 
-        // aggiungo .blue all'elemento cliccato
-        // aggiungo msg in console con il numero della casella (.textContent)
+// creo con createElment il div
+// inserisco .square
+// inserisco uno dei numeri della array
+// 4. CREATI i div devono essere cliccabili
+// aggiungo .blue all'elemento cliccato
+// aggiungo msg in console con il numero della casella (.textContent)
 
 
 
@@ -47,7 +34,27 @@ console.log(hundredNumbers)
 
 
 //FUNCTION
-//RANDOM NUMBERS
+
+
+//RANDOM NUMBERS GENERATOR W3school
 function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) ) + min;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+/**
+ * ARRAY WITH RANDOM NUMBERS
+ * Description La funzione genera una array composta da numeri senza duplicati.
+ * La lunghezza dell'array viene decisa nel parametro
+ * @param {number} arrayLength n° di numeri nell'array
+ * @returns {array}
+ */
+function generateArrayRandomNumbers(arrayLength) {
+  const arrayNumbers = [];
+  while (arrayNumbers.length < arrayLength) {
+    const randomNumber = getRndInteger(1, arrayLength);
+    if (!arrayNumbers.includes(randomNumber)) {
+        arrayNumbers.push(randomNumber);
+    }
   }
+  return arrayNumbers;
+}
