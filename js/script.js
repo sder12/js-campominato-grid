@@ -24,6 +24,13 @@ console.log(hundredNumbers);
 // creo con createElment il div
 // inserisco .square
 // inserisco uno dei numeri della array
+for(let i = 0; i < 100; i++){
+    const squareDiv = document.createElement("div");
+    squareDiv.classList.add("square");
+    squareDiv.innerHTML = hundredNumbers[i];
+    console.log(squareDiv)
+}
+
 // 4. CREATI i div devono essere cliccabili
 // aggiungo .blue all'elemento cliccato
 // aggiungo msg in console con il numero della casella (.textContent)
