@@ -12,24 +12,23 @@ btnPlay.addEventListener("click", function () {
   gridDiv.classList.add("grid");
   mainDiv.append(gridDiv);
   // console.log(gridDiv);
-});
 
-// 2. GENERO (while) 100 numeri random (senza duplicati) e li pusho in una array
-// genero 100 numeri
-const hundredNumbers = generateArrayRandomNumbers(100);
-console.log(hundredNumbers);
+  // 2. GENERO (while) 100 numeri random (senza duplicati) e li pusho in una array
+  // genero 100 numeri
+  const hundredNumbers = generateArrayRandomNumbers(100);
+  console.log(hundredNumbers);
 
-
-// 3. CREO con ciclo for 100 div.square NB utilizzo this perchè devono essere cliccabili
-// creo con createElment il div
-// inserisco .square
-// inserisco uno dei numeri della array
-for(let i = 0; i < 100; i++){
+  // 3. CREO con ciclo for 100 div.square NB utilizzo this perchè devono essere cliccabili
+  // creo con createElment il div
+  // inserisco .square
+  // inserisco uno dei numeri della array
+  for (let i = 0; i < 100; i++) {
     const squareDiv = document.createElement("div");
     squareDiv.classList.add("square");
     squareDiv.innerHTML = hundredNumbers[i];
-    console.log(squareDiv)
-}
+    gridDiv.append(squareDiv);
+  }
+});
 
 // 4. CREATI i div devono essere cliccabili
 // aggiungo .blue all'elemento cliccato
@@ -40,8 +39,12 @@ for(let i = 0; i < 100; i++){
 
 
 
-//FUNCTION
 
+
+
+
+
+//FUNCTION
 
 //RANDOM NUMBERS GENERATOR W3school
 function getRndInteger(min, max) {
@@ -60,7 +63,7 @@ function generateArrayRandomNumbers(arrayLength) {
   while (arrayNumbers.length < arrayLength) {
     const randomNumber = getRndInteger(1, arrayLength);
     if (!arrayNumbers.includes(randomNumber)) {
-        arrayNumbers.push(randomNumber);
+      arrayNumbers.push(randomNumber);
     }
   }
   return arrayNumbers;
