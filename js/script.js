@@ -16,9 +16,18 @@ btnPlay.addEventListener("click" , function(){
     // console.log(gridDiv);    
 })
 
-
-
 // 2. GENERO (while) 100 numeri random (senza duplicati) e li pusho in una array
+// genero 100 numeri 
+let i = 0;
+while(i < 100){
+    const numberRnd = getRndInteger(1, 100);
+    console.log(numberRnd);
+    i++;
+}
+
+
+
+
 // 3. CREO con ciclo for 100 div.square NB utilizzo this perchè devono essere cliccabili
         // creo con createElment il div
         // inserisco .square
@@ -29,3 +38,11 @@ btnPlay.addEventListener("click" , function(){
 
 
 
+
+
+
+//FUNCTION
+//RANDOM NUMBERS
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+  }
