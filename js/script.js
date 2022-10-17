@@ -18,13 +18,18 @@ btnPlay.addEventListener("click" , function(){
 
 // 2. GENERO (while) 100 numeri random (senza duplicati) e li pusho in una array
 // genero 100 numeri 
-let i = 0;
-while(i < 100){
-    const numberRnd = getRndInteger(1, 100);
-    console.log(numberRnd);
-    i++;
-}
+const hundredNumbers = [];
 
+let i = 0;
+while(hundredNumbers.length < 100){
+    const numberRnd = getRndInteger(1, 100);
+    // console.log(numberRnd);
+
+    if (!hundredNumbers.includes(numberRnd)){
+        hundredNumbers.push(numberRnd);
+    } 
+}
+console.log(hundredNumbers)
 
 
 
