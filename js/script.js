@@ -1,41 +1,34 @@
-// prelevo btn e main
 const btnPlay = document.getElementById("button-play");
 const mainDiv = document.querySelector("main");
 
-//1. Al Click di btnPlay si genera griglia e squares
 btnPlay.addEventListener("click", function () {
-  //creo grid div, append al main
+  mainDiv.innerHTML = "";
+  //Add grid
   const gridDiv = document.createElement("div");
   gridDiv.classList.add("grid");
   mainDiv.append(gridDiv);
-
-  //  SE Select OPTION = EASY
-  // 2. GENERO (while) 100 numeri random (senza duplicati) e li pusho in una array
+  //Create array
   const hundredNumbers = generateArrayRandomNumbers(100);
-
-  // 3. CREO con ciclo for 100 div.square
+  // Create and add square
   for (let i = 0; i < 100; i++) {
     const squareDiv = document.createElement("div");
     squareDiv.classList.add("square");
     squareDiv.classList.add("square-simple");
     squareDiv.innerHTML = hundredNumbers[i];
-
-    // 4. CREO DIV cliccabili con this.
+    // click add blue
     squareDiv.addEventListener("click", function () {
       this.classList.add("blue");
       const clickedNumber = this.textContent;
       console.log(clickedNumber);
     });
-
     gridDiv.append(squareDiv);
   }
 
-  //  ALTRIMENTI SE è medium
-  // Medium 9x9 --- add square-medium
+ 
+  // Medium 9x9 --- add class square-medium
   const eightyoneNumbers = generateArrayRandomNumbers(81);
   console.log(eightyoneNumbers);
-  // ALTRIMENTI (hard)
-  //Hard 7x7 --- add square-hard
+  //Hard 7x7 --- add class square-hard
   const fortynineNumbers = generateArrayRandomNumbers(49);
   console.log(fortynineNumbers);
 });
