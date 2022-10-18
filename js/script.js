@@ -7,30 +7,18 @@ btnPlay.addEventListener("click", function () {
   const gridDiv = document.createElement("div");
   gridDiv.classList.add("grid");
   mainDiv.append(gridDiv);
-  //Create array
-  const hundredNumbers = generateArrayRandomNumbers(100);
+
   // Create and add square
-  for (let i = 0; i < 100; i++) {
+  for (let i = 1; i < 101; i++) {
     const squareDiv = document.createElement("div");
     squareDiv.classList.add("square");
     squareDiv.classList.add("square-simple");
-    squareDiv.innerHTML = hundredNumbers[i];
+    squareDiv.innerHTML = i;
     // click add blue
-    squareDiv.addEventListener("click", function () {
-      this.classList.add("blue");
-      const clickedNumber = this.textContent;
-      console.log(clickedNumber);
-    });
+    squareDiv.addEventListener("click", clickedSquare);
     gridDiv.append(squareDiv);
   }
 
- 
-  // Medium 9x9 --- add class square-medium
-  const eightyoneNumbers = generateArrayRandomNumbers(81);
-  console.log(eightyoneNumbers);
-  //Hard 7x7 --- add class square-hard
-  const fortynineNumbers = generateArrayRandomNumbers(49);
-  console.log(fortynineNumbers);
 });
 
 //FUNCTION-------------------------------------------
@@ -56,4 +44,15 @@ function generateArrayRandomNumbers(arrayLength) {
     }
   }
   return arrayNumbers;
+}
+
+
+/**FUNZIONE VOID > non ha return: CLICK del singolo NUMERO
+ * Quando elemento è cliccato aggiungo la classe del colore a quell'elemento
+ * e poi lo visualizzo nella console
+ */
+function clickedSquare() {
+  this.classList.add("blue");
+  const clickedNumber = this.textContent;
+  console.log(clickedNumber);
 }
